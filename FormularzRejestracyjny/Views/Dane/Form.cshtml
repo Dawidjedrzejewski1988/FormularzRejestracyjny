@@ -1,0 +1,72 @@
+﻿@model Dane
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz Rejestracyjny</title>
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<body>
+    <h1>Formularz Rejestracyjny</h1>
+    <form asp-action="Form" method="post">
+        <div asp-validation-summary="All" class="validation-summary"></div>
+        <div>
+            <label>Imię</label>
+            <input asp-for="Imie" />
+            <span asp-validation-for="Imie" class="validation-message"></span>
+        </div>
+        <div>
+            <label>Nazwisko</label>
+            <input asp-for="Nazwisko" />
+            <span asp-validation-for="Nazwisko" class="validation-message"></span>
+        </div>
+        <div>
+            <label>Email</label>
+            <input asp-for="Email" />
+            <span asp-validation-for="Email" class="validation-message"></span>
+        </div>
+        <div>
+            <label>Hasło</label>
+            <input asp-for="Haslo" type="password" />
+            <span asp-validation-for="Haslo" class="validation-message"></span>
+        </div>
+        <div>
+            <label>Potwierdzenie Hasła</label>
+            <input asp-for="PotwierdzenieHasla" type="password" />
+            <span asp-validation-for="PotwierdzenieHasla" class="validation-message"></span>
+        </div>
+        <div>
+            <label>Nr Telefonu</label>
+            <input asp-for="NrTelefonu" />
+            <span asp-validation-for="NrTelefonu" class="validation-message"></span>
+        </div>
+        <div>
+            <label>Wiek</label>
+            <input asp-for="Wiek" type="number" />
+            <span asp-validation-for="Wiek" class="validation-message"></span>
+        </div>
+        <div>
+            <label>Miasto</label>
+            <select asp-for="Miasto">
+                <option value="">Wybierz...</option>
+                <option value="Warszawa">Warszawa</option>
+                <option value="Kraków">Kraków</option>
+                <option value="Wrocław">Wrocław</option>
+                <option value="Poznań">Poznań</option>
+                <option value="Gdańsk">Gdańsk</option>
+            </select>
+            <span asp-validation-for="Miasto" class="validation-message"></span>
+        </div>
+        <button type="submit">Zarejestruj</button>
+        <button type="reset">Wyczyść</button>
+    </form>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+</body>
+</html>
